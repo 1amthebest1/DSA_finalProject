@@ -32,7 +32,7 @@ int main() {
 	grid.setButtonPositionDefault();
 	grid.setButtonColorDefault();
 
-	createWindow(760, 900);
+	createWindow(760, 1000);
 	InitAudioDevice();
 	setFPS(60);
 	while (!WindowShouldClose()) {
@@ -48,6 +48,8 @@ int main() {
 		grid.drawLoadSavedImage();
 		grid.drawReverseImage();
 		grid.drawGrayScale();
+		grid.drawIncreaseOpacity();
+		grid.drawDecreaseOpacity();
 
 		grid.checkSavePressed();
 		grid.checkClearCanvasPressed();
@@ -57,6 +59,9 @@ int main() {
 		grid.checkLoadSavedImagePressed(grid.buttonColor);
 		grid.checkReverseImagePressed(grid.buttonColor);
 		grid.checkGrayScalePressed(grid.buttonColor);
+		grid.checkIncreaseOpacityPressed();
+		grid.checkDecreaseOpacityPressed();
+
 		finishCanvas();
 	}
 	StopMusicStream(bgMusic);
