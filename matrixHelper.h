@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include "matrix.h"
 #include <fstream>
+#include "globals.h"
 
 using namespace std;
 
@@ -26,15 +27,9 @@ void loadSavedImage(int buttonColor[][30], string filename = "C:\\Users\\saeed\\
 
 void reverseImage(int buttonColor[][30]) {
 	cout << "Reverse Image Called" << endl;
-	int emptyArray[30][30] = { 0 };
 	for (int i = 0; i < 30; i++) {
-		for (int j = 29, l=0; j >= 0; j--, l++) {
-			emptyArray[i][l] = buttonColor[i][j];
-		}
-	}
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; j < 30; j++) {
-			buttonColor[i][j] = emptyArray[i][j];
+		for (int j = 0; j < 15; j++) {
+			std::swap(buttonColor[i][j], buttonColor[i][29 - j]);
 		}
 	}
 }
