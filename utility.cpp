@@ -37,6 +37,7 @@ int main() {
 	setFPS(60);
 	while (!WindowShouldClose()) {
 		createCanvasBlack();
+
 		grid.checkRectanglePressed();
 		grid.checkRectanglePressedSingle();
 		grid.drawMatrix();
@@ -50,6 +51,9 @@ int main() {
 		grid.drawGrayScale();
 		grid.drawIncreaseOpacity();
 		grid.drawDecreaseOpacity();
+		grid.drawRedWhite();
+		grid.drawCompressFile();
+		grid.drawLoadCompressedFile();
 
 		grid.checkSavePressed();
 		grid.checkClearCanvasPressed();
@@ -61,6 +65,9 @@ int main() {
 		grid.checkGrayScalePressed(grid.buttonColor);
 		grid.checkIncreaseOpacityPressed();
 		grid.checkDecreaseOpacityPressed();
+		grid.checkRedWhitePressed(grid.buttonColor);
+		grid.checkCompressPressed();
+		grid.checkLoadCompressPressed(grid.buttonColor);
 
 		finishCanvas();
 	}
