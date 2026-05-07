@@ -164,8 +164,7 @@ public:
 
 	void saveImage() {
 		srand(time(0));
-		string fileName = "BakerRocks" + to_string(rand() % 10000) + to_string(rand() % 99999);
-		fileName = "C:\\Users\\saeed\\OneDrive\\Desktop\\savedImages\\" + fileName + ".txt";
+		string fileName = "C:\\Users\\saeed\\OneDrive\\Desktop\\experiments\\DSA finalProject\\DSA finalProject\\output.txt";
 		ofstream saver(fileName);
 		if (saver) {
 			for (int i = 0; i < 30; i++) {
@@ -394,7 +393,70 @@ public:
 			if (mousePoint.x >= 600 && mousePoint.x <= 650 + 90) {
 				if (mousePoint.y >= 830 && mousePoint.y <= 830 + 40) {
 					decreaseOpacity();
-					cout << "called Increase Opacity" << endl;
+					cout << "Increase Opacity Pressed" << endl;
+				}
+			}
+		}
+	}
+
+	void drawRedWhite() {
+		DrawRectangle(5, 890, 90, 40, YELLOW);
+		DrawText("Red White", 7, 900, 15, BLACK);
+	}
+
+	void checkRedWhitePressed(int buttonColor[][30]) {
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			Vector2 mousePoint = GetMousePosition();
+			if (mousePoint.x >= 5 && mousePoint.x <= 5 + 90) {
+				if (mousePoint.y >= 890 && mousePoint.y <= 890 + 40) {
+					cout << "Red White Pressed" << endl;	
+					redWhiteScale(buttonColor);
+				}
+			}
+		}
+	}
+
+	void drawCompressFile() {
+		DrawRectangle(150, 890, 90, 40, YELLOW);
+		DrawText("Compress", 152, 900, 15, BLACK);
+	}
+
+	void checkCompressPressed(string fileToSave="x", string compressedFile="y") {
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			Vector2 mousePoint = GetMousePosition();
+			if (mousePoint.x >= 150 && mousePoint.x <= 150 + 90) {
+				if (mousePoint.y >= 890 && mousePoint.y <= 890 + 40) {
+					cout << "Draw Compressed Pressed" << endl;
+
+					if (fileToSave == "x" && compressedFile == "y") {
+						saveCompressed();
+					}
+					else {
+						saveCompressed(fileToSave, compressedFile);
+					}
+				}
+			}
+		}
+	}
+
+	void drawLoadCompressedFile() {
+		DrawRectangle(300, 890, 140, 40, YELLOW);
+		DrawText("Load Compressed", 302, 900, 15, BLACK);
+	}
+
+	void checkLoadCompressPressed(int buttonColors[][30], string compressedFile="x") {
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			Vector2 mousePoint = GetMousePosition();
+			if (mousePoint.x >= 300 && mousePoint.x <= 300 + 140) {
+				if (mousePoint.y >= 890 && mousePoint.y <= 890 + 40) {
+					cout << "Load Compressed Pressed" << endl;
+
+					if (compressedFile == "x") {
+						loadCompressed(buttonColors);
+					}
+					else {
+						loadCompressed(buttonColors, compressedFile);
+					}
 				}
 			}
 		}
