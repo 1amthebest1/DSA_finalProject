@@ -34,6 +34,7 @@ int main() {
 
 	createWindow(760, 1000);
 	InitAudioDevice();
+	bgMusic = LoadMusicStream("D:/music/0513.mp3");
 	setFPS(60);
 	while (!WindowShouldClose()) {
 		createCanvasBlack();
@@ -54,6 +55,7 @@ int main() {
 		grid.drawRedWhite();
 		grid.drawCompressFile();
 		grid.drawLoadCompressedFile();
+		grid.dance();
 
 		grid.checkSavePressed();
 		grid.checkClearCanvasPressed();
