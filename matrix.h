@@ -261,11 +261,6 @@ public:
 	}
 
 	void dance() {
-		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && !musicPlaying) {
-			PlayMusicStream(bgMusic);
-			musicPlaying = true;
-		}
-
 		if (musicPlaying) {
 			UpdateMusicStream(bgMusic);
 		}
@@ -274,10 +269,20 @@ public:
 	void checkDancePressed() {
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 			Vector2 mousePoint = GetMousePosition();
+
 			if (mousePoint.x >= 150 && mousePoint.x <= 150 + 90) {
 				if (mousePoint.y >= 830 && mousePoint.y <= 830 + 40) {
+
+					if (!musicPlaying) {
+						PlayMusicStream(bgMusic);
+						musicPlaying = true;
+					}
+					else {
+						StopMusicStream(bgMusic);
+						musicPlaying = false;
+					}
+
 					cout << "Dance Pressed" << endl;
-					musicPlaying = !musicPlaying;
 				}
 			}
 		}
